@@ -24,7 +24,7 @@ export default function HomePage() {
           setProducts(featured.length > 0 ? featured : data.slice(0, 8));
         }
       })
-      .catch((err) => console.error("Failed to fetch products:", err));
+    console.log("Kiyusha Frontend: Vercel deployment diagnostic active");
   }, []);
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
