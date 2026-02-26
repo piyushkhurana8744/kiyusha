@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.21",
     "cloudinary": "^2.9.0",
     "formidable": "^3.5.4",
     "framer-motion": "^11.11.10",
