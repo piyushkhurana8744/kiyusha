@@ -124,11 +124,11 @@ export default function ProductsListPage() {
                   </td>
                   <td className="px-8 py-5 text-sm text-deepCharcoal/60">{product.category}</td>
                   <td className="px-8 py-5 text-sm font-medium">
-                    <div>
-                      {product.price}
-                      {product.oldPrice && (
-                        <span className="ml-2 text-xs text-deepCharcoal/40 line-through">
-                          {product.oldPrice}
+                    <div className="flex flex-col">
+                      <span className="text-softGold">₹{product.sellingPrice?.toLocaleString() || product.price}</span>
+                      {product.mrp && product.mrp > 0 && (
+                        <span className="text-[10px] text-deepCharcoal/30 line-through">
+                          ₹{product.mrp.toLocaleString()}
                         </span>
                       )}
                     </div>

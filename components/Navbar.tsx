@@ -6,6 +6,8 @@ import { Heart, Menu, Search, ShoppingBag, Sparkles, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { navCategories } from "@/data/home";
+import { useSession, signOut } from "@/lib/auth-client";
+import { User as UserIcon, LogOut } from "lucide-react";
 
 const primaryLinks = [
   { label: "New Arrivals", href: "/collections/new-arrivals" },
@@ -20,6 +22,8 @@ export default function Navbar() {
   const [isMegaOpen, setIsMegaOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { totalItems, setIsCartOpen } = useCart();
+  const { data: session, isPending } = useSession();
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   useEffect(() => {
     // Toggles glassmorphism state once the header leaves the top edge.
@@ -141,6 +145,61 @@ export default function Navbar() {
                 </span>
               )}
             </button>
+
+            <div className="relative">
+              {session ? (
+                <>
+                  <button
+                    type="button"
+                    className="rounded-full p-2 text-deepCharcoal transition hover:bg-black/5"
+                    aria-label="User Account"
+                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  >
+                    <UserIcon size={18} />
+                  </button>
+                  <AnimatePresence>
+                    {isUserMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute right-0 mt-2 w-48 bg-warmWhite subtle-border shadow-lg p-2 z-[60]"
+                      >
+                        <div className="px-4 py-3 border-b border-black/5 mb-2">
+                          <p className="text-xs font-semibold truncate">{session.user.name}</p>
+                          <p className="text-[10px] text-black/40 truncate">{session.user.email}</p>
+                        </div>
+                        <Link
+                          href="/account"
+                          className="flex items-center px-4 py-2 text-xs text-deepCharcoal hover:bg-black/5 transition-colors"
+                          onClick={() => setIsUserMenuOpen(false)}
+                        >
+                          My Account
+                        </Link>
+                        <button
+                          onClick={() => {
+                            signOut();
+                            setIsUserMenuOpen(false);
+                          }}
+                          className="w-full flex items-center px-4 py-2 text-xs text-red-600 hover:bg-red-50 transition-colors"
+                        >
+                          <LogOut size={14} className="mr-2" />
+                          Sign Out
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </>
+              ) : (
+                <Link
+                  href="/login"
+                  className="rounded-full p-2 text-deepCharcoal transition hover:bg-black/5 flex items-center justify-center"
+                  aria-label="Login"
+                >
+                  <UserIcon size={18} />
+                </Link>
+              )}
+            </div>
 
             <button
               type="button"

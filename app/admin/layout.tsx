@@ -1,8 +1,19 @@
 import Link from "next/link";
 import { LayoutDashboard, ShoppingBag, Image as ImageIcon, Settings, Globe } from "lucide-react";
 import { ReactNode } from "react";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function AdminLayout({ children }: { children: ReactNode }) {
+export default async function AdminLayout({ children }: { children: ReactNode }) {
+  const session = await auth.api.getSession({
+    headers: headers(),
+  });
+
+  if (!session) {
+    redirect("/login");
+  }
+
   const navItems = [
     { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
     { label: "Products", href: "/admin/products", icon: ShoppingBag },

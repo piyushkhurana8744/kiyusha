@@ -6,6 +6,9 @@ export interface Product {
   _id: string;
   name: string;
   category: string;
+  description?: string;
+  mrp?: number;
+  sellingPrice: number;
   price: string;
   oldPrice?: string;
   image: string;
@@ -14,6 +17,7 @@ export interface Product {
   badge?: string;
   isFeatured?: boolean;
   isNewArrival?: boolean;
+  showDiscountPopup?: boolean;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -21,13 +25,17 @@ export interface Product {
 export interface ProductInput {
   name: string;
   category: string;
-  price: string;
+  description?: string;
+  mrp?: number;
+  sellingPrice: number;
+  price?: string;
   oldPrice?: string;
   image: string;
   hoverImage: string;
   badge?: string;
   isFeatured?: boolean;
   isNewArrival?: boolean;
+  showDiscountPopup?: boolean;
 }
 
 // Query Keys
@@ -69,6 +77,8 @@ const fetchProductStats = async () => {
 const createProduct = async (data: ProductInput): Promise<Product> => {
   const productData = {
     ...data,
+    price: `INR ${data.sellingPrice.toLocaleString()}`,
+    oldPrice: data.mrp ? `INR ${data.mrp.toLocaleString()}` : "",
     href: `/products/${data.name.toLowerCase().replace(/\s+/g, "-")}`,
   };
   
@@ -83,10 +93,18 @@ const createProduct = async (data: ProductInput): Promise<Product> => {
 };
 
 const updateProduct = async ({ id, data }: { id: string; data: Partial<ProductInput> }): Promise<Product> => {
+  const updateData = {
+    ...data,
+    ...(data.sellingPrice !== undefined ? { price: `INR ${data.sellingPrice.toLocaleString()}` } : {}),
+    ...(data.mrp !== undefined ? { oldPrice: data.mrp > 0 ? `INR ${data.mrp.toLocaleString()}` : "" } : {}),
+    // Ensure hoverImage is at least an empty string to satisfy schema if it was required
+    // (though we just made it optional)
+  };
+
   const res = await fetch(`/api/products/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify(updateData),
   });
   
   if (!res.ok) throw new Error("Failed to update product");
