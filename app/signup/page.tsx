@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Loader2, Mail, Lock, User, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function SignupPage() {
@@ -44,7 +43,6 @@ export default function SignupPage() {
 
   return (
     <main className="min-h-screen bg-ivory text-deepCharcoal">
-      <Navbar />
       
       <div className="flex min-h-[calc(100-200px)] items-center justify-center px-6 py-24">
         <motion.div 

@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { useSession, signOut } from "@/lib/auth-client";
 import { motion } from "framer-motion";
 import { LogOut, Package, Settings, User } from "lucide-react";
@@ -24,7 +23,6 @@ export default function AccountPage() {
 
   return (
     <main className="min-h-screen bg-ivory text-deepCharcoal">
-      <Navbar />
 
       <div className="container-lux py-20">
         <motion.div

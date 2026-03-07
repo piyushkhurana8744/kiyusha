@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import { earringProducts as staticEarrings } from "@/data/home";
 import { motion } from "framer-motion";
@@ -23,7 +22,6 @@ export default function EarringsPage() {
   }, []);
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
-      <Navbar />
 
       <header className="relative bg-warmWhite py-24 text-center overflow-hidden">
         {/* Decorative background element */}

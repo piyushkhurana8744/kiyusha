@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -29,7 +28,6 @@ export default function FineGoldPage() {
 
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
-      <Navbar />
 
       <header className="relative bg-[#1a1a1a] py-32 text-center overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-30" />

@@ -16,7 +16,7 @@ export default function CollectionGrid({ collections }: CollectionGridProps) {
         <div className="mb-14 text-center">
           <p className="text-xs uppercase tracking-[0.28em] text-softGold">Signature Picks</p>
           <h2 id="curated-collections" className="mt-4 font-heading text-4xl text-deepCharcoal md:text-5xl">
-            Khushbu's signature
+            Kiyusha's signature
           </h2>
         </div>
 

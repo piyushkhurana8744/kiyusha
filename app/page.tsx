@@ -4,7 +4,6 @@ import CollectionGrid from "@/components/CollectionGrid";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 
-import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
@@ -56,7 +55,6 @@ export default function HomePage() {
 
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
-      <Navbar />
       <Hero />
 
       {/* New Arrivals Section */}

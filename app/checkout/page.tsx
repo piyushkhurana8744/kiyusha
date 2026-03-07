@@ -12,11 +12,12 @@ import {
   Shield, 
   Lock,
   Loader2,
-  ShoppingBag
+  ShoppingBag,
+  ArrowRight,
+  Package
 } from "lucide-react";
 import { useCart, CartItem } from "@/context/CartContext";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 
 type CheckoutStep = "information" | "shipping" | "payment";
 
@@ -90,7 +91,6 @@ export default function CheckoutPage() {
   if (items.length === 0 && !orderComplete) {
     return (
       <main className="bg-ivory min-h-screen">
-        <Navbar />
         <div className="container-lux py-20">
           <div className="flex flex-col items-center justify-center gap-4">
             <ShoppingBag size={64} className="text-deepCharcoal/20" />
@@ -112,7 +112,6 @@ export default function CheckoutPage() {
   if (orderComplete) {
     return (
       <main className="bg-ivory min-h-screen">
-        <Navbar />
         <div className="container-lux py-20">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
@@ -145,7 +144,6 @@ export default function CheckoutPage() {
 
   return (
     <main className="bg-ivory min-h-screen">
-      <Navbar />
       
       <div className="container-lux py-8">
         {/* Back Link */}

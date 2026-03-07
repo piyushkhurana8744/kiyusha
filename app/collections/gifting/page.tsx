@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,7 +26,6 @@ const giftCategories = [
 export default function GiftingPage() {
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
-      <Navbar />
 
       <header className="relative bg-[#f9f7f4] py-32 text-center overflow-hidden">
         <motion.div 

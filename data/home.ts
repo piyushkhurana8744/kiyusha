@@ -90,50 +90,44 @@ export const navCategories: NavCategory[] = [
 export const collections: CollectionCard[] = [
   {
     title: "Necklaces",
-    tagline: "Sculpted layers for day-to-evening polish",
-    image:
-      "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Elegant anti-tarnish designs for everyday shine",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772869215/kiyusha/uhct44rqr4kfdhxvwtvn.jpg",
     href: "/collections/necklaces"
   },
   {
     title: "Bracelets",
-    tagline: "Fine lines, modern cuffs, and charm edits",
-    image:
-      "https://images.unsplash.com/photo-1603561596112-0a132b757442?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Delicate wristwear with lasting shine",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772871182/kiyusha/kxc6yh6twmfswossarar.jpg",
     href: "/collections/bracelets"
   },
   {
     title: "Earrings",
     tagline: "Refined silhouettes with subtle sparkle",
-    image:
-      "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=1200&q=80",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772867558/kiyusha/tfzhxszavau85xfni7dn.jpg",
     href: "/collections/earrings"
   },
   {
     title: "Rings",
-    tagline: "Everyday stacks with elevated finish",
-    image:
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Stackable rings for modern elegance",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772887330/Whisk_c7d91dc215588079a394178669b91199dr_g6sf0r.jpg",
     href: "/collections/rings"
   },
   {
     title: "Anklets",
-    tagline: "Soft movement in warm gold tones",
-    image:
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Graceful anklets for subtle charm",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772886627/ChatGPT_Image_Mar_7_2026_05_59_30_PM_upgbzz.png",
     href: "/collections/anklets"
   },
   {
     title: "Gift Sets",
-    tagline: "Curated demi-fine boxes for milestones",
-    image:
-      "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Perfect jewellery gifts for special moments",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772887272/Gemini_Generated_Image_tltraptltraptltr_xlpvp9.png",
     href: "/collections/gift-sets"
   },
   {
     title: "Bangles",
-    tagline: "Timeless circles of elegance and tradition",
-    image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Classic circles of timeless beauty",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772870866/kiyusha/dmvlzmjxvq4msa5c21gq.jpg",
     href: "/collections/bangles"
   },
   {

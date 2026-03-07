@@ -18,7 +18,6 @@ import {
   Loader2
 } from "lucide-react";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { useProduct, Product } from "@/hooks/useProducts";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
@@ -83,7 +82,6 @@ export default function ProductDetailPage() {
   if (isLoading) {
     return (
       <main className="bg-ivory min-h-screen">
-        <Navbar />
         <div className="flex items-center justify-center min-h-[60vh]">
           <Loader2 className="animate-spin text-softGold" size={40} />
         </div>
@@ -95,7 +93,6 @@ export default function ProductDetailPage() {
   if (error || !product) {
     return (
       <main className="bg-ivory min-h-screen">
-        <Navbar />
         <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
           <p className="text-deepCharcoal/60">Product not found</p>
           <Link href="/collections/new-arrivals" className="text-softGold hover:underline">
@@ -109,7 +106,6 @@ export default function ProductDetailPage() {
 
   return (
     <main className="bg-ivory min-h-screen">
-      <Navbar />
       
       {/* Breadcrumb */}
       <div className="container-lux py-4">

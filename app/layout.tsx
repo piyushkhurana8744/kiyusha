@@ -6,6 +6,7 @@ import TanStackQueryProvider from "@/components/TanStackQueryProvider";
 import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import CartSidebar from "@/components/CartSidebar";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <TanStackQueryProvider>
           <CartProvider>
             <WishlistProvider>
+              <Navbar />
               <CartSidebar />
               {children}
             </WishlistProvider>

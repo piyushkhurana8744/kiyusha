@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,7 +34,6 @@ export default function AboutPage() {
 
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
-      <Navbar />
 
       {/* Hero Banner */}
       <section className="relative h-[40vh] min-h-[320px] flex items-center justify-center bg-deepCharcoal overflow-hidden">

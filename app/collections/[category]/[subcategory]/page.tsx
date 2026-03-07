@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -36,7 +35,6 @@ export default function SubCategoryPage() {
 
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
-      <Navbar />
 
       <header className="relative bg-warmWhite py-16 text-center overflow-hidden border-b border-black/5">
         <motion.div 
