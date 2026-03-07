@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import TanStackQueryProvider from "@/components/TanStackQueryProvider";
 import { CartProvider } from "@/context/CartContext";
+import { WishlistProvider } from "@/context/WishlistContext";
 import CartSidebar from "@/components/CartSidebar";
 
 const inter = Inter({
@@ -60,8 +61,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         <TanStackQueryProvider>
           <CartProvider>
-            <CartSidebar />
-            {children}
+            <WishlistProvider>
+              <CartSidebar />
+              {children}
+            </WishlistProvider>
           </CartProvider>
         </TanStackQueryProvider>
       </body>

@@ -13,6 +13,7 @@ export interface Product {
   oldPrice?: string;
   image: string;
   hoverImage: string;
+  gallery: string[];
   href: string;
   badge?: string;
   isFeatured?: boolean;
@@ -32,6 +33,7 @@ export interface ProductInput {
   oldPrice?: string;
   image: string;
   hoverImage: string;
+  gallery?: string[];
   badge?: string;
   isFeatured?: boolean;
   isNewArrival?: boolean;
@@ -79,6 +81,7 @@ const createProduct = async (data: ProductInput): Promise<Product> => {
     ...data,
     price: `INR ${data.sellingPrice.toLocaleString()}`,
     oldPrice: data.mrp ? `INR ${data.mrp.toLocaleString()}` : "",
+    gallery: data.gallery || [],
     href: `/products/${data.name.toLowerCase().replace(/\s+/g, "-")}`,
   };
   

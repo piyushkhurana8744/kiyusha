@@ -10,7 +10,8 @@ const ProductSchema = new Schema(
     price: { type: String },
     oldPrice: { type: String },
     image: { type: String, required: true },
-    hoverImage: { type: String }, // Not strictly required
+    hoverImage: { type: String },
+    gallery: [{ type: String }],
     href: { type: String, required: true },
     badge: { type: String },
     isFeatured: { type: Boolean, default: false },
