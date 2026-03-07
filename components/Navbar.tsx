@@ -34,8 +34,12 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50">
-      <div className="relative overflow-hidden bg-black">
+    <header className="fixed top-0 z-50 w-full">
+      <div
+        className={`relative overflow-hidden bg-black transition-all duration-500 ${
+          isScrolled ? "max-h-0 overflow-hidden opacity-0" : "max-h-0 overflow-hidden opacity-0"
+        }`}
+      >
         <div className="announcement-shimmer absolute inset-0" aria-hidden />
         <p className="relative px-6 py-2 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-softGold">
           Complimentary Shipping Pan India | Easy 15 Day Returns
@@ -45,14 +49,16 @@ export default function Navbar() {
       <div
         className={`transition-all duration-500 ${
           isScrolled
-            ? "border-b border-black/10 bg-warmWhite/75 shadow-[0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl"
-            : "bg-warmWhite/95"
+            ? "border-b border-white/10 bg-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl"
+            : "bg-transparent"
         }`}
       >
         <div className="container-lux flex h-20 items-center justify-between">
           <Link
             href="/"
-            className="font-heading text-3xl uppercase tracking-[0.22em] text-deepCharcoal"
+            className={`font-heading text-3xl uppercase tracking-[0.22em] transition-colors duration-500 ${
+              isScrolled ? "text-deepCharcoal" : "text-warmWhite"
+            }`}
             aria-label="Kiyusha Home"
           >
             Kiyusha
@@ -69,7 +75,9 @@ export default function Navbar() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="group relative py-1 text-sm tracking-[0.08em] text-deepCharcoal/90"
+                      className={`group relative py-1 text-sm tracking-[0.08em] transition-colors duration-500 ${
+                        isScrolled ? "text-deepCharcoal/90" : "text-warmWhite/90"
+                      }`}
                     >
                       {link.label}
                       <span className="absolute left-0 top-full h-px w-full origin-left scale-x-0 bg-softGold transition-transform duration-300 group-hover:scale-x-100" />
@@ -120,21 +128,27 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <button
               type="button"
-              className="rounded-full p-2 text-deepCharcoal transition hover:bg-black/5"
+              className={`rounded-full p-2 transition duration-500 ${
+                isScrolled ? "text-deepCharcoal hover:bg-black/5" : "text-warmWhite hover:bg-white/10"
+              }`}
               aria-label="Search"
             >
               <Search size={18} />
             </button>
             <button
               type="button"
-              className="rounded-full p-2 text-deepCharcoal transition hover:bg-black/5"
+              className={`rounded-full p-2 transition duration-500 ${
+                isScrolled ? "text-deepCharcoal hover:bg-black/5" : "text-warmWhite hover:bg-white/10"
+              }`}
               aria-label="Wishlist"
             >
               <Heart size={18} />
             </button>
             <button
               type="button"
-              className="rounded-full p-2 text-deepCharcoal transition hover:bg-black/5 relative"
+              className={`rounded-full p-2 relative transition duration-500 ${
+                isScrolled ? "text-deepCharcoal hover:bg-black/5" : "text-warmWhite hover:bg-white/10"
+              }`}
               aria-label="Cart"
               onClick={() => setIsCartOpen(true)}
             >
@@ -151,7 +165,9 @@ export default function Navbar() {
                 <>
                   <button
                     type="button"
-                    className="rounded-full p-2 text-deepCharcoal transition hover:bg-black/5"
+                    className={`rounded-full p-2 transition duration-500 ${
+                      isScrolled ? "text-deepCharcoal hover:bg-black/5" : "text-warmWhite hover:bg-white/10"
+                    }`}
                     aria-label="User Account"
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                   >
@@ -193,7 +209,9 @@ export default function Navbar() {
               ) : (
                 <Link
                   href="/login"
-                  className="rounded-full p-2 text-deepCharcoal transition hover:bg-black/5 flex items-center justify-center"
+                  className={`rounded-full p-2 flex items-center justify-center transition duration-500 ${
+                    isScrolled ? "text-deepCharcoal hover:bg-black/5" : "text-warmWhite hover:bg-white/10"
+                  }`}
                   aria-label="Login"
                 >
                   <UserIcon size={18} />
@@ -203,7 +221,9 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="ml-1 rounded-full p-2 text-deepCharcoal transition hover:bg-black/5 lg:hidden"
+              className={`ml-1 rounded-full p-2 transition duration-500 lg:hidden ${
+                isScrolled ? "text-deepCharcoal hover:bg-black/5" : "text-warmWhite hover:bg-white/10"
+              }`}
               onClick={() => setIsMobileOpen((prev) => !prev)}
               aria-label="Toggle Menu"
             >

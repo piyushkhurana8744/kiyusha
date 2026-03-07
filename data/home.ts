@@ -43,6 +43,47 @@ export const navCategories: NavCategory[] = [
       { label: "Signet Rings", href: "/collections/rings/signet" },
       { label: "Statement Rings", href: "/collections/rings/statement" }
     ]
+  },
+  {
+    title: "Bangles",
+    href: "/collections/bangles",
+    links: [
+      { label: "Traditional Bangles", href: "/collections/bangles/traditional" },
+      { label: "Modern Bangles", href: "/collections/bangles/modern" }
+    ]
+  },
+  {
+    title: "Cosmetics",
+    href: "/collections/cosmetics",
+    links: [
+      { label: "Face", href: "/collections/cosmetics/face" },
+      { label: "Eyes", href: "/collections/cosmetics/eyes" },
+      { label: "Lips", href: "/collections/cosmetics/lips" }
+    ]
+  },
+  {
+    title: "Crochet",
+    href: "/collections/crochet",
+    links: [
+      { label: "Bags", href: "/collections/crochet/bags" },
+      { label: "Accessories", href: "/collections/crochet/accessories" }
+    ]
+  },
+  {
+    title: "Anklets",
+    href: "/collections/anklets",
+    links: [
+      { label: "Charm Anklets", href: "/collections/anklets/charm" },
+      { label: "Minimalist Anklets", href: "/collections/anklets/minimalist" }
+    ]
+  },
+  {
+    title: "Gift Sets",
+    href: "/collections/gift-sets",
+    links: [
+      { label: "Jewelry Boxes", href: "/collections/gift-sets/boxes" },
+      { label: "Curated Sets", href: "/collections/gift-sets/curated" }
+    ]
   }
 ];
 
@@ -88,6 +129,24 @@ export const collections: CollectionCard[] = [
     image:
       "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=1200&q=80",
     href: "/collections/gift-sets"
+  },
+  {
+    title: "Bangles",
+    tagline: "Timeless circles of elegance and tradition",
+    image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1200&q=80",
+    href: "/collections/bangles"
+  },
+  {
+    title: "Cosmetics",
+    tagline: "Luminous essentials for your daily ritual",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772873152/kiyusha/ljnzai8kxab5jl4iy8ic.png",
+    href: "/collections/cosmetics"
+  },
+  {
+    title: "Crochet",
+    tagline: "Handmade with love — artisan knits & crochet",
+    image: "https://res.cloudinary.com/dnfz4jwam/image/upload/v1772873123/kiyusha/fnmy82zkvuytpg3hmpcu.jpg",
+    href: "/collections/crochet"
   }
 ];
 

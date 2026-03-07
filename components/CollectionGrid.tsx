@@ -14,9 +14,9 @@ export default function CollectionGrid({ collections }: CollectionGridProps) {
     <section aria-labelledby="curated-collections">
       <div className="container-lux">
         <div className="mb-14 text-center">
-          <p className="text-xs uppercase tracking-[0.28em] text-softGold">Curated Collections</p>
+          <p className="text-xs uppercase tracking-[0.28em] text-softGold">Signature Picks</p>
           <h2 id="curated-collections" className="mt-4 font-heading text-4xl text-deepCharcoal md:text-5xl">
-            Khushboo signature
+            Khushbu's signature
           </h2>
         </div>
 

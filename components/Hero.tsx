@@ -46,7 +46,10 @@ export default function Hero() {
             Kiyusha brings together feminine minimalism and modern Indian luxury, designed to elevate your everyday
             styling with polished simplicity.
           </p>
-          <Link href="/collections/new-arrivals" className="gold-outline-button border-warmWhite text-warmWhite hover:border-softGold">
+          <Link
+            href="/collections/new-arrivals"
+            className="inline-flex items-center gap-2 bg-softGold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-300 hover:bg-white hover:text-deepCharcoal hover:shadow-xl"
+          >
             Shop New Arrivals
           </Link>
         </div>

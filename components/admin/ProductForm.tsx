@@ -58,7 +58,7 @@ export default function ProductForm({ initialData, onSubmit, isLoading, title }:
     }
   }, [initialData]);
 
-  const categories = ["Necklaces", "Earrings", "Bracelets", "Rings", "Anklets", "Gift Sets"];
+  const categories = ["Necklaces", "Earrings", "Bracelets", "Rings", "Anklets", "Gift Sets", "Cosmetics", "Crochet", "Bangles"];
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
     const files = e.target.files;

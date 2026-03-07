@@ -160,6 +160,16 @@ export default function AdminDashboard() {
                <p className="text-sm text-deepCharcoal/50 font-light mt-1">Manage images and assets</p>
              </div>
           </Link>
+
+          <Link href="/admin/settings" className="group bg-white border border-black/5 p-8 rounded-2xl hover:border-softGold/30 transition-all flex flex-col items-center justify-center gap-4 text-center">
+             <div className="p-3 bg-ivory rounded-full group-hover:scale-110 transition-transform">
+               <Sparkles size={24} className="text-softGold" />
+             </div>
+             <div>
+               <p className="font-medium text-lg tracking-tight text-deepCharcoal">Site Settings</p>
+               <p className="text-sm text-deepCharcoal/50 font-light mt-1">Featured section & brand story</p>
+             </div>
+          </Link>
         </div>
       </section>
     </div>
