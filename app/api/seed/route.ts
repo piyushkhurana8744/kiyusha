@@ -3,7 +3,19 @@ import connectDB from "@/lib/db";
 import Product from "@/models/Product";
 import { signaturePicks, newArrivals, earringProducts } from "@/data/home";
 
-export async function GET() {
+// Prevent Next.js from calling this route during build
+export const dynamic = "force-dynamic";
+
+// Changed to POST to prevent accidental triggers (browser visits, build pre-rendering)
+export async function POST(request: Request) {
+  // Safety: only allow seeding in development
+  if (process.env.NODE_ENV === "production") {
+    return NextResponse.json(
+      { error: "Seeding is disabled in production" },
+      { status: 403 }
+    );
+  }
+
   try {
     await connectDB();
     
@@ -36,4 +48,11 @@ export async function GET() {
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+}
+
+// GET now just returns info, does NOT delete anything
+export async function GET() {
+  return NextResponse.json({
+    message: "Seed endpoint is available. Use POST method to seed data (development only).",
+  });
 }

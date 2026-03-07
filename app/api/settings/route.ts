@@ -2,6 +2,9 @@ import connectDB from "@/lib/db";
 import SiteSettings from "@/models/SiteSettings";
 import { NextResponse } from "next/server";
 
+// Prevent Next.js from pre-rendering this route during build
+export const dynamic = "force-dynamic";
+
 /**
  * GET /api/settings
  * Returns the singleton site-settings document.

@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import connectDB from "@/lib/db";
 import Product from "@/models/Product";
 
+// Prevent Next.js from pre-rendering this route during build
+export const dynamic = "force-dynamic";
+
 interface RouteParams {
   params: Promise<{
     id: string;
