@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import { motion } from "framer-motion";
