@@ -98,12 +98,33 @@ export default function ProductCard({ product }: ProductCardProps) {
         </button>
       </Link>
 
-      <div className="space-y-2 px-1 pb-2 pt-5">
-        <p className="text-xs uppercase tracking-[0.2em] text-deepCharcoal/55">{product.category}</p>
-        <h3 className="text-lg text-deepCharcoal">{product.name}</h3>
-        <div className="flex items-center gap-2 text-sm">
-          <span className="font-medium text-deepCharcoal">{product.price}</span>
-          {product.oldPrice ? <span className="text-deepCharcoal/45 line-through">{product.oldPrice}</span> : null}
+      <div className="space-y-1.5 px-1 pb-2 pt-5">
+        <p className="text-[10px] uppercase tracking-[0.2em] text-softGold/80 font-medium">
+          {product.category}
+        </p>
+        <div className="min-h-[3rem] flex flex-col justify-start">
+          <h3 className="line-clamp-2 text-base font-normal text-deepCharcoal group-hover:text-softGold transition-colors duration-300 leading-snug">
+            {product.name}
+          </h3>
+        </div>
+        <div className="flex flex-wrap items-center gap-2 pt-1 transition-transform duration-300 group-hover:translate-x-0.5">
+          <span className="text-base font-semibold text-deepCharcoal">
+            {product.price}
+          </span>
+          {product.mrp && product.sellingPrice && product.mrp > product.sellingPrice ? (
+            <>
+              <span className="text-xs text-deepCharcoal/40 line-through decoration-deepCharcoal/30">
+                INR {product.mrp.toLocaleString()}
+              </span>
+              <span className="text-[10px] font-bold tracking-wider text-softGold bg-softGold/5 px-2 py-0.5 rounded-full border border-softGold/10">
+                {Math.round(((product.mrp - product.sellingPrice) / product.mrp) * 100)}% OFF
+              </span>
+            </>
+          ) : product.oldPrice ? (
+            <span className="text-xs text-deepCharcoal/40 line-through decoration-deepCharcoal/30">
+              {product.oldPrice}
+            </span>
+          ) : null}
         </div>
       </div>
     </article>
