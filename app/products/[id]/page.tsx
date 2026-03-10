@@ -226,9 +226,9 @@ export default function ProductDetailPage() {
                   {product.name}
                 </h1>
                 <div className="flex items-baseline gap-3 pt-1">
-                  <span className="text-2xl font-bold text-deepCharcoal">{product.price}</span>
+                  <span className="text-2xl font-bold text-deepCharcoal">₹{product.price.replace(/[^0-9.]/g, "")}</span>
                   {product.oldPrice && (
-                    <span className="text-lg text-deepCharcoal/30 line-through decoration-softGold/30">{product.oldPrice}</span>
+                    <span className="text-lg text-deepCharcoal/30 line-through decoration-deepCharcoal/10">₹{product.oldPrice.replace(/[^0-9.]/g, "")}</span>
                   )}
                 </div>
               </div>

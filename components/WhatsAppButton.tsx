@@ -14,13 +14,21 @@ export default function WhatsAppButton() {
       .then((data) => {
         const phone = data?.ownerInfo?.phone;
         if (phone) {
-          // Sanitize phone number: remove non-numeric characters
           const sanitized = phone.replace(/\D/g, "");
           setPhoneNumber(sanitized);
           setIsVisible(true);
+        } else {
+          // Fallback to a default number if not set in admin
+          setPhoneNumber("919000000000");
+          setIsVisible(true);
         }
       })
-      .catch((err) => console.error("Failed to fetch WhatsApp settings:", err));
+      .catch((err) => {
+        console.error("Failed to fetch WhatsApp settings:", err);
+        // Fallback on error
+        setPhoneNumber("919000000000");
+        setIsVisible(true);
+      });
   }, []);
 
   if (!isVisible || !phoneNumber) return null;

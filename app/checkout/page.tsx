@@ -53,11 +53,9 @@ export default function CheckoutPage() {
   const [orderComplete, setOrderComplete] = useState(false);
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
+    return `₹${new Intl.NumberFormat('en-IN', {
       maximumFractionDigits: 0,
-    }).format(price);
+    }).format(price)}`;
   };
 
   const subtotal = totalPrice;

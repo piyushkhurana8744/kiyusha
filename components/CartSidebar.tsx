@@ -10,11 +10,9 @@ export default function CartSidebar() {
   const { items, removeItem, updateQuantity, totalItems, totalPrice, isCartOpen, setIsCartOpen, clearCart } = useCart();
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
+    return `₹${new Intl.NumberFormat('en-IN', {
       maximumFractionDigits: 0,
-    }).format(price);
+    }).format(price)}`;
   };
 
   return (

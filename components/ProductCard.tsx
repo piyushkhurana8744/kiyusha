@@ -109,20 +109,20 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className="flex flex-wrap items-center gap-2 pt-1 transition-transform duration-300 group-hover:translate-x-0.5">
           <span className="text-base font-semibold text-deepCharcoal">
-            {product.price}
+            ₹{product.price.replace(/[^0-9.]/g, "")}
           </span>
           {product.mrp && product.sellingPrice && product.mrp > product.sellingPrice ? (
             <>
-              <span className="text-xs text-deepCharcoal/40 line-through decoration-deepCharcoal/30">
-                INR {product.mrp.toLocaleString()}
+              <span className="text-xs text-deepCharcoal/40 line-through decoration-deepCharcoal/20">
+                ₹{product.mrp.toLocaleString()}
               </span>
-              <span className="text-[10px] font-bold tracking-wider text-softGold bg-softGold/5 px-2 py-0.5 rounded-full border border-softGold/10">
+              <span className="text-[10px] font-bold tracking-wider text-softGold bg-softGold/5 px-2 py-0.5 rounded-full border border-softGold/20">
                 {Math.round(((product.mrp - product.sellingPrice) / product.mrp) * 100)}% OFF
               </span>
             </>
           ) : product.oldPrice ? (
-            <span className="text-xs text-deepCharcoal/40 line-through decoration-deepCharcoal/30">
-              {product.oldPrice}
+            <span className="text-xs text-deepCharcoal/40 line-through decoration-deepCharcoal/20">
+              ₹{product.oldPrice.replace(/[^0-9.]/g, "")}
             </span>
           ) : null}
         </div>

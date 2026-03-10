@@ -37,7 +37,7 @@ const SiteSettingsSchema = new Schema(
       story: { type: String, default: "" },
       email: { type: String, default: "" },
       instagram: { type: String, default: "" },
-      phone: { type: String, default: "" },
+      phone: { type: String, default: "+91 90000 00000" },
     },
   },
   { timestamps: true }
