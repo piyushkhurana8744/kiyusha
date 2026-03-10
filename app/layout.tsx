@@ -7,6 +7,7 @@ import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import CartSidebar from "@/components/CartSidebar";
 import Navbar from "@/components/Navbar";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
               <Navbar />
               <CartSidebar />
               {children}
+              <WhatsAppButton />
             </WishlistProvider>
           </CartProvider>
         </TanStackQueryProvider>

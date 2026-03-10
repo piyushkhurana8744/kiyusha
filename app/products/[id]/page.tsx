@@ -105,7 +105,7 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <main className="bg-ivory min-h-screen">
+    <main className="bg-ivory min-h-screen pt-20">
       
       {/* Breadcrumb */}
       <div className="container-lux py-4">

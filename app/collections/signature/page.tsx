@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
+import ProductSkeleton from "@/components/ProductSkeleton";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -52,8 +53,10 @@ export default function SignaturePage() {
       <section className="py-24 bg-warmWhite">
         <div className="container-lux">
           {isLoading ? (
-            <div className="flex justify-center py-20">
-              <div className="w-8 h-8 border-2 border-softGold border-t-transparent rounded-full animate-spin" />
+            <div className="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <ProductSkeleton key={i} />
+              ))}
             </div>
           ) : (
             <div className="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">

@@ -160,7 +160,9 @@ export default function Navbar() {
             >
               <ShoppingBag size={20} strokeWidth={1.5} />
               {totalItems > 0 && (
-                <span className="absolute top-1.5 right-1.5 w-4.5 h-4.5 bg-softGold text-[9px] flex items-center justify-center rounded-full text-white font-bold shadow-sm">
+                <span className={`absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-white shadow-sm ring-2 ${
+                  isScrolled || isLightPage ? "bg-softGold ring-white" : "bg-softGold ring-deepCharcoal/20"
+                }`}>
                   {totalItems}
                 </span>
               )}

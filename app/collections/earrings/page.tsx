@@ -2,14 +2,16 @@
 
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import { earringProducts as staticEarrings } from "@/data/home";
+import ProductSkeleton from "@/components/ProductSkeleton";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function EarringsPage() {
-  const [products, setProducts] = useState<any[]>(staticEarrings);
+  const [products, setProducts] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("/api/products")
       .then((res) => res.json())
       .then((data) => {
@@ -18,7 +20,8 @@ export default function EarringsPage() {
           if (filtered.length > 0) setProducts(filtered);
         }
       })
-      .catch((err) => console.error("Failed to fetch earrings:", err));
+      .catch((err) => console.error("Failed to fetch earrings:", err))
+      .finally(() => setIsLoading(false));
   }, []);
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
@@ -75,18 +78,26 @@ export default function EarringsPage() {
             }}
             className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
-            {products.map((product) => (
-              <motion.div
-                key={product.id || product._id}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <ProductCard product={product} />
-              </motion.div>
-            ))}
+            {isLoading ? (
+              Array.from({ length: 8 }).map((_, i) => (
+                <div key={i}>
+                  <ProductSkeleton />
+                </div>
+              ))
+            ) : (
+              products.map((product) => (
+                <motion.div
+                  key={product.id || product._id}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <ProductCard product={product} />
+                </motion.div>
+              ))
+            )}
           </motion.div>
         </div>
       </section>
