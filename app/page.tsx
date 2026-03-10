@@ -8,7 +8,8 @@ import ProductCard from "@/components/ProductCard";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 import Link from "next/link";
-import { collections, signaturePicks as staticPicks, testimonials } from "@/data/home";
+import { collections, testimonials } from "@/data/home";
+import ProductSkeleton from "@/components/ProductSkeleton";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -24,10 +25,12 @@ type OwnerInfo = {
 
 export default function HomePage() {
   const [featuredProducts, setFeaturedProducts] = useState<any[]>([]);
-  const [newArrivals, setNewArrivals] = useState<any[]>(staticPicks.slice(0, 4));
+  const [newArrivals, setNewArrivals] = useState<any[]>([]);
   const [ownerInfo, setOwnerInfo] = useState<OwnerInfo | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("/api/products")
       .then((res) => res.json())
       .then((data) => {
@@ -39,6 +42,8 @@ export default function HomePage() {
           setNewArrivals(arrivals.length > 0 ? arrivals : data.slice(4, 8));
         }
       })
+      .catch((err) => console.error("Failed to fetch products:", err))
+      .finally(() => setIsLoading(false));
 
     // Fetch owner info for the story section
     fetch("/api/settings")
@@ -67,9 +72,13 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {newArrivals.map((product) => (
-              <ProductCard key={product.id || product._id} product={product} />
-            ))}
+            {isLoading ? (
+              Array.from({ length: 4 }).map((_, i) => <ProductSkeleton key={i} />)
+            ) : (
+              newArrivals.map((product) => (
+                <ProductCard key={product.id || product._id} product={product} />
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -89,9 +98,13 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id || product._id} product={product} />
-            ))}
+            {isLoading ? (
+              Array.from({ length: 4 }).map((_, i) => <ProductSkeleton key={i} />)
+            ) : (
+              featuredProducts.map((product) => (
+                <ProductCard key={product.id || product._id} product={product} />
+              ))
+            )}
           </div>
         </div>
       </section>
