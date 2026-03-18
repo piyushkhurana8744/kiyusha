@@ -19,14 +19,14 @@ export default function WhatsAppButton() {
           setIsVisible(true);
         } else {
           // Fallback to a default number if not set in admin
-          setPhoneNumber("919000000000");
+          setPhoneNumber("918744045668");
           setIsVisible(true);
         }
       })
       .catch((err) => {
         console.error("Failed to fetch WhatsApp settings:", err);
         // Fallback on error
-        setPhoneNumber("919000000000");
+        setPhoneNumber("918744045668");
         setIsVisible(true);
       });
   }, []);

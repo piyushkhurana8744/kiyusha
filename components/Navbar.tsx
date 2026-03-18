@@ -48,8 +48,11 @@ export default function Navbar() {
     ? "bg-white/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] backdrop-blur-xl border-b border-black/5" 
     : "bg-transparent";
 
+  const isHomePage = pathname === "/";
+  const headerPositionClass = isHomePage && !isScrolled ? "absolute top-12" : "sticky top-0";
+
   return (
-    <header className="fixed top-0 z-50 w-full">
+    <header className={`${headerPositionClass} z-50 w-full`}>
       <div className={`transition-all duration-500 ease-in-out ${bgColorClass}`}>
         <div className="container-lux flex h-20 items-center justify-between">
           {/* Logo */}

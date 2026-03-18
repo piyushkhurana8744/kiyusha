@@ -21,13 +21,13 @@ export default function Hero() {
       <motion.div style={{ y: imageY }} className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=2200&q=80"
-          alt="Model wearing Kiyusha demi-fine jewellery"
+          alt="Model wearing Kiyusha jewellery"
           fill
           priority
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/10" />
       </motion.div>
 
       <motion.div
@@ -35,33 +35,38 @@ export default function Hero() {
         initial={{ opacity: 0, y: 36 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="container-lux relative flex h-full items-center"
+        className="container-lux relative flex h-full items-center pt-14"
       >
         <div className="max-w-2xl space-y-8">
           <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-1 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-softGold animate-pulse" />
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white">Small Batch • Handpicked • Handmade</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white font-medium">✨ New Collection: Only 5-10 pieces per design</p>
           </div>
           <h1 className="font-heading text-4xl leading-tight text-white md:text-6xl">
-            Simple things, <br className="hidden md:block" /> made with love.
+            From our stall <br className="hidden md:block" /> to your style.
           </h1>
           <p className="max-w-xl text-sm leading-relaxed text-white/90 md:text-lg">
-            We started with a small stall and a passion for pretty things. From anti-tarnish jewellery to handmade crochet, everything we sell is handpicked to make your day a bit brighter.
+            We started with a small stall in local markets. Today, we bring our handpicked collection of jewellery, handmade crochet, and beauty finds directly to your doorstep.
+            <span className="block mt-4 font-bold text-softGold italic">Limited stock available for each design.</span>
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
             <Link
               href="/collections/new-arrivals"
-              className="inline-flex items-center gap-2 bg-softGold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-300 hover:bg-deepCharcoal"
+              className="inline-flex items-center gap-2 bg-softGold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-300 hover:bg-white hover:text-deepCharcoal"
             >
-              Explore Collection
+              Shop the Collection
             </Link>
             <Link
-              href="/about"
-              className="inline-flex items-center gap-2 border border-white/40 bg-transparent px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white hover:text-deepCharcoal"
+              href="https://wa.me/918744045668"
+              target="_blank"
+              className="inline-flex items-center gap-2 border border-white/40 bg-white/10 backdrop-blur-sm px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white hover:text-deepCharcoal"
             >
-              Our Story
+              Order on WhatsApp
             </Link>
           </div>
+          <p className="text-[10px] text-white/50 uppercase tracking-widest">
+            Join 100+ local families who shop with us regularly.
+          </p>
         </div>
       </motion.div>
     </section>

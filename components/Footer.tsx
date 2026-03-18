@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="max-w-md space-y-5">
             <p className="font-heading text-3xl uppercase tracking-[0.18em]">Kiyusha</p>
             <p className="text-sm leading-relaxed text-white/80">
-              Premium Indian demi-fine jewellery crafted for women who prefer understated luxury in every detail.
+              From our local stall to your style. Handpicked jewellery, handmade crochet, and beauty finds loved by our local community.
             </p>
             <form className="flex flex-col gap-3 sm:flex-row" aria-label="Newsletter signup">
               <label htmlFor="newsletter-email" className="sr-only">

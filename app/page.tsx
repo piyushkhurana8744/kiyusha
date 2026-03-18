@@ -66,7 +66,10 @@ export default function HomePage() {
     <main className="overflow-x-hidden bg-white text-deepCharcoal">
       <Hero />
       <TrustSection />
-
+      
+      
+      <ValueProp />
+      
       {/* New Arrivals Section */}
       <section className="py-24" aria-labelledby="new-arrivals">
         <div className="container-lux">
@@ -91,10 +94,6 @@ export default function HomePage() {
       <section className="bg-warmWhite py-20">
         <CollectionGrid collections={collections} />
       </section>
-
-      <ValueProp />
-
-
 
       <section className="pt-32 pb-24" aria-labelledby="signature-picks">
         <div className="container-lux">

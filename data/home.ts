@@ -187,11 +187,13 @@ export const signaturePicks: Product[] = [
     name: "Luna Signet Ring",
     category: "Rings",
     price: "INR 2,699",
+    oldPrice: "INR 3,299",
     image:
       "https://images.unsplash.com/photo-1612177343582-665b80f1f59f?auto=format&fit=crop&w=900&q=80",
     hoverImage:
       "https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=900&q=80",
-    href: "/products/luna-signet-ring"
+    href: "/products/luna-signet-ring",
+    badge: "Limited"
   },
   {
     id: "p4",
@@ -210,6 +212,7 @@ export const signaturePicks: Product[] = [
     name: "Mira Crystal Studs",
     category: "Earrings",
     price: "INR 2,199",
+    oldPrice: "INR 2,899",
     image:
       "https://images.unsplash.com/photo-1633810548074-8f5f2ff89e0d?auto=format&fit=crop&w=900&q=80",
     hoverImage:
@@ -221,11 +224,13 @@ export const signaturePicks: Product[] = [
     name: "Noor Charm Anklet",
     category: "Anklets",
     price: "INR 2,499",
+    oldPrice: "INR 2,999",
     image:
       "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=900&q=80",
     hoverImage:
       "https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?auto=format&fit=crop&w=900&q=80",
-    href: "/products/noor-charm-anklet"
+    href: "/products/noor-charm-anklet",
+    badge: "Bestseller"
   },
   {
     id: "p7",
@@ -243,6 +248,7 @@ export const signaturePicks: Product[] = [
     name: "Celeste Drop Necklace",
     category: "Necklaces",
     price: "INR 3,599",
+    oldPrice: "INR 4,299",
     image:
       "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80",
     hoverImage:

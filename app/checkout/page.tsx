@@ -78,12 +78,103 @@ export default function CheckoutPage() {
   };
 
   const handlePlaceOrder = async () => {
+    if (formData.paymentMethod === "cod") {
+      setIsProcessing(true);
+      // For COD, we still create an order but with a different flow if needed
+      // For now, let's just simulate it as before or implement a COD API if available
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setIsProcessing(false);
+      setOrderComplete(true);
+      clearCart();
+      return;
+    }
+
+    // Razorpay Flow
     setIsProcessing(true);
-    // Simulate order processing
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsProcessing(false);
-    setOrderComplete(true);
-    clearCart();
+    try {
+      // 1. Create order on server
+      const res = await fetch("/api/checkout/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: items.map(item => ({
+            product: item._id,
+            name: item.name,
+            quantity: item.quantity,
+            price: parseFloat(item.price.replace(/[^0-9.]/g, "")),
+            image: item.image
+          })),
+          totalAmount: total,
+          shippingAddress: {
+            name: `${formData.firstName} ${formData.lastName}`,
+            email: formData.email,
+            phone: formData.phone,
+            address: formData.address,
+            city: formData.city,
+            state: formData.state,
+            pincode: formData.pincode,
+          },
+        }),
+      });
+
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error || "Order creation failed");
+
+      const { razorpayOrder, order } = data;
+
+      // 2. Initialize Razorpay
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_XXXXXXXXXXXX",
+        amount: razorpayOrder.amount,
+        currency: razorpayOrder.currency,
+        name: "Kiyusha",
+        description: `Order #${order.orderNumber}`,
+        order_id: razorpayOrder.id,
+        handler: async (response: any) => {
+          try {
+            // 3. Verify payment on server
+            const verifyRes = await fetch("/api/checkout/verify-payment", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              }),
+            });
+
+            const verifyData = await verifyRes.json();
+            if (verifyData.success) {
+              setOrderComplete(true);
+              clearCart();
+            } else {
+              throw new Error(verifyData.error || "Payment verification failed");
+            }
+          } catch (err: any) {
+            alert(err.message);
+          }
+        },
+        prefill: {
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          contact: formData.phone,
+        },
+        theme: {
+          color: "#be1e2e",
+        },
+      };
+
+      const rzp = new (window as any).Razorpay(options);
+      rzp.open();
+      rzp.on("payment.failed", (response: any) => {
+        alert(response.error.description);
+      });
+
+    } catch (err: any) {
+      alert(err.message);
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   if (items.length === 0 && !orderComplete) {

@@ -15,7 +15,13 @@ export default function TrustSection() {
       style={{ backgroundColor: '#FFFFFF' }} 
       className="py-16 border-y border-ivory"
     >
-      <div className="container-lux">
+      <div className="container-lux text-center mb-12">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-softGold font-bold mb-4">From our family to yours</p>
+        <h2 className="font-heading text-3xl text-deepCharcoal md:text-4xl">Human Touch, Always.</h2>
+        <p className="mt-4 text-sm text-deepCharcoal/60 max-w-xl mx-auto italic">"We believe jewellery shouldn't just look good; it should feel like a part of your story."</p>
+      </div>
+      
+      <div className="container-lux mb-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, index) => (
             <motion.div
@@ -37,6 +43,7 @@ export default function TrustSection() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }

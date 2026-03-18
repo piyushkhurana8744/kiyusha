@@ -24,13 +24,13 @@ export default function ValueProp() {
       <div className="container-lux">
         <div className="grid gap-16 lg:grid-cols-2 items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-softGold">Our Story</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-softGold">Our Heart</p>
             <h2 className="mt-6 font-heading text-4xl leading-tight text-deepCharcoal md:text-5xl">
-              From local stalls to <br /> your <span className="text-softGold italic">doorstep.</span>
+              We started from <br /> local stalls with a <span className="text-softGold italic">Big Dream.</span>
             </h2>
             <p className="mt-8 text-deepCharcoal/70 leading-relaxed md:text-lg">
-              We started Kiyusha because we love finding unique, pretty things that don't cost a fortune. 
-              Whether it's an anti-tarnish ring or a hand-made crochet bag, everything here is something we’d personally use (and often do!).
+              Kiyusha isn't just a store; it's a journey that began at weekend markets and small local stalls. 
+              We saw how much people loved unique, affordable pieces, and we decided to bring that same personal touch and handpicked quality to everyone across India.
             </p>
             
             <ul className="mt-10 space-y-6">

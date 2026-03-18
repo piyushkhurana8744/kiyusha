@@ -7,6 +7,7 @@ import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import CartSidebar from "@/components/CartSidebar";
 import Navbar from "@/components/Navbar";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const inter = Inter({
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Kiyusha"
   },
   description:
-    "Kiyusha crafts premium Indian demi-fine jewellery designed for everyday luxury, modern femininity, and timeless polish.",
+    "From our local stall to your style. Handpicked jewellery, handmade crochet, and beauty finds loved by our local community.",
   keywords: [
     "demi-fine jewellery",
     "Indian jewellery brand",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kiyusha | Everyday Demi-Fine Luxury Jewellery",
     description:
-      "Discover minimal, feminine demi-fine jewellery with elevated styling and premium craftsmanship.",
+      "Handpicked jewellery, handmade crochet, and beauty finds directly from our stall to your style.",
     url: "https://kiyusha.com",
     siteName: "Kiyusha",
     locale: "en_IN",
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kiyusha | Everyday Demi-Fine Luxury Jewellery",
     description:
-      "Premium Indian demi-fine jewellery with a modern luxury aesthetic."
+      "Handpicked jewellery and handmade crochet with a personal touch."
   },
   alternates: {
     canonical: "/"
@@ -60,10 +61,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
+      </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         <TanStackQueryProvider>
           <CartProvider>
             <WishlistProvider>
+              <AnnouncementBanner />
               <Navbar />
               <CartSidebar />
               {children}
