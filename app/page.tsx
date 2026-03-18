@@ -12,6 +12,10 @@ import { collections, testimonials } from "@/data/home";
 import ProductSkeleton from "@/components/ProductSkeleton";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import TrustSection from "@/components/TrustSection";
+import ValueProp from "@/components/ValueProp";
+import Features from "@/components/Features";
+import ClosingCTA from "@/components/ClosingCTA";
 
 type OwnerInfo = {
   name: string;
@@ -59,8 +63,9 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
+    <main className="overflow-x-hidden bg-white text-deepCharcoal">
       <Hero />
+      <TrustSection />
 
       {/* New Arrivals Section */}
       <section className="py-24" aria-labelledby="new-arrivals">
@@ -87,6 +92,8 @@ export default function HomePage() {
         <CollectionGrid collections={collections} />
       </section>
 
+      <ValueProp />
+
 
 
       <section className="pt-32 pb-24" aria-labelledby="signature-picks">
@@ -109,9 +116,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      <Features />
+
       <section className="bg-warmWhite py-24">
         <Testimonials items={testimonials} />
       </section>
+
+      <ClosingCTA />
 
       {/* Owner Story Section */}
       <section className="bg-warmWhite py-24" aria-labelledby="our-story">

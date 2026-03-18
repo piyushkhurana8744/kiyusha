@@ -381,24 +381,24 @@ export const earringProducts: Product[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Aarushi Mehra",
-    location: "Mumbai",
+    name: "Sneha",
+    location: "Local Stall Customer",
     quote:
-      "The finish feels genuinely premium. I wear my Kiyusha stack every day and it still looks newly polished.",
+      "I first saw their collection at a weekend market and loved how simple the designs were. I bought a set of rings and they haven't faded even after daily wear.",
     rating: 5
   },
   {
-    name: "Kritika S.",
-    location: "Bengaluru",
+    name: "Ritu M.",
+    location: "Online Buyer",
     quote:
-      "Exactly the minimal yet luxurious look I wanted. Packaging, quality, and fit were all impeccable.",
+      "The crochet bag I ordered is so well-made. You can tell it took a lot of time to make. It’s my favorite thing to carry now!",
     rating: 5
   },
   {
-    name: "Ira Kapoor",
-    location: "New Delhi",
+    name: "Aditi G.",
+    location: "Delhi",
     quote:
-      "The pieces layer beautifully and do not irritate my skin. Kiyusha feels like quiet luxury done right.",
+      "I really like that they are honest about what they sell. The jewellery is affordable and looks great. Very happy with my purchase.",
     rating: 5
   }
 ];

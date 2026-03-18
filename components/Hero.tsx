@@ -38,20 +38,30 @@ export default function Hero() {
         className="container-lux relative flex h-full items-center"
       >
         <div className="max-w-2xl space-y-8">
-          <p className="text-xs uppercase tracking-[0.32em] text-warmWhite/90">Everyday Demi-Fine Luxury</p>
-          <h1 className="font-heading text-4xl leading-tight text-warmWhite md:text-6xl md:tracking-luxury">
-            Jewellery That Speaks in Quiet Gold
+          <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-1 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-softGold animate-pulse" />
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white">Small Batch • Handpicked • Handmade</p>
+          </div>
+          <h1 className="font-heading text-4xl leading-tight text-white md:text-6xl">
+            Simple things, <br className="hidden md:block" /> made with love.
           </h1>
-          <p className="max-w-xl text-sm leading-relaxed text-warmWhite/90 md:text-base">
-            Kiyusha brings together feminine minimalism and modern Indian luxury, designed to elevate your everyday
-            styling with polished simplicity.
+          <p className="max-w-xl text-sm leading-relaxed text-white/90 md:text-lg">
+            We started with a small stall and a passion for pretty things. From anti-tarnish jewellery to handmade crochet, everything we sell is handpicked to make your day a bit brighter.
           </p>
-          <Link
-            href="/collections/new-arrivals"
-            className="inline-flex items-center gap-2 bg-softGold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-300 hover:bg-white hover:text-deepCharcoal hover:shadow-xl"
-          >
-            Shop New Arrivals
-          </Link>
+          <div className="flex flex-wrap gap-4 pt-4">
+            <Link
+              href="/collections/new-arrivals"
+              className="inline-flex items-center gap-2 bg-softGold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-300 hover:bg-deepCharcoal"
+            >
+              Explore Collection
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 border border-white/40 bg-transparent px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white hover:text-deepCharcoal"
+            >
+              Our Story
+            </Link>
+          </div>
         </div>
       </motion.div>
     </section>

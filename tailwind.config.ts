@@ -5,6 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brandRed: "#be1e2e",
         ivory: "#F8F5F0",
         warmWhite: "#FAF9F6",
         softGold: "#C6A75E",
