@@ -26,7 +26,7 @@ export default function NewArrivalsPage() {
   return (
     <main className="overflow-x-hidden bg-ivory text-deepCharcoal">
 
-      <header className="relative bg-warmWhite py-24 text-center overflow-hidden">
+      <header className="relative bg-warmWhite py-16 sm:py-24 text-center overflow-hidden">
          {/* Subtle background decorative element */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-0 w-64 h-64 bg-softGold rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -41,7 +41,7 @@ export default function NewArrivalsPage() {
           <p className="text-xs uppercase tracking-[0.4em] text-softGold font-medium mb-4">
             Just In
           </p>
-          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-deepCharcoal mb-6">
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-deepCharcoal mb-6">
             New Arrivals
           </h1>
           <p className="max-w-2xl mx-auto text-deepCharcoal/70 text-lg leading-relaxed font-light">

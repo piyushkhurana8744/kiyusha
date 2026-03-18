@@ -29,7 +29,7 @@ export default function AnnouncementBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -20, opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="text-[9px] font-bold uppercase tracking-[0.35em] text-white text-center w-full"
+          className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.35em] text-white text-center w-full px-4"
         >
           {announcements[currentAnnouncement]}
         </motion.p>

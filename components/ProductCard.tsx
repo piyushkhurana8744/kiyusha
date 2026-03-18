@@ -84,7 +84,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           type="button"
           onClick={handleQuickAdd}
           disabled={isQuickAdding}
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-3 bg-warmWhite px-5 py-2 text-[11px] uppercase tracking-[0.16em] text-deepCharcoal opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100 disabled:opacity-50 flex items-center gap-1"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-3 bg-warmWhite px-5 py-2 text-[11px] uppercase tracking-[0.16em] text-deepCharcoal opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 max-lg:translate-y-0 max-lg:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100 disabled:opacity-50 flex items-center gap-1 shadow-sm"
           aria-label={`Quick add ${product.name}`}
         >
           {isQuickAdding ? (

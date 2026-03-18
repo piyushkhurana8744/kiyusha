@@ -59,7 +59,7 @@ export default function CheckoutPage() {
   };
 
   const subtotal = totalPrice;
-  const shipping = subtotal >= 2000 ? 0 : 150;
+  const shipping = subtotal >= 999 ? 0 : 70;
   const discount = 0; // Could add coupon logic
   const total = subtotal + shipping - discount;
 
@@ -241,28 +241,75 @@ export default function CheckoutPage() {
           Continue Shopping
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-20">
+          {/* Mobile Order Summary Toggle */}
+          <div className="lg:hidden">
+            <button 
+              onClick={() => {
+                const summary = document.getElementById('mobile-summary');
+                if (summary) summary.classList.toggle('hidden');
+              }}
+              className="w-full flex items-center justify-between p-4 bg-white border border-black/5 rounded-xl text-sm"
+            >
+              <div className="flex items-center gap-2 text-softGold font-medium">
+                <ShoppingBag size={18} />
+                <span>Show Order Summary</span>
+              </div>
+              <span className="font-bold">{formatPrice(total)}</span>
+            </button>
+            <div id="mobile-summary" className="hidden mt-4 p-4 bg-white border border-black/5 rounded-xl space-y-4">
+               {/* Simplified summary for mobile toggle */}
+               <div className="space-y-4 max-h-[300px] overflow-y-auto">
+                {items.map((item) => (
+                  <div key={item._id} className="flex gap-4">
+                    <div className="relative w-12 h-16 bg-ivory rounded overflow-hidden flex-shrink-0">
+                      <Image src={item.image} alt={item.name} fill className="object-cover" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-xs font-medium text-deepCharcoal line-clamp-1">{item.name}</h4>
+                      <p className="text-[10px] text-deepCharcoal/40">Qty: {item.quantity}</p>
+                    </div>
+                    <p className="text-xs font-medium text-deepCharcoal">{formatPrice(parseFloat(item.price.replace(/[^0-9.]/g, "")) * item.quantity)}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="pt-4 border-t border-black/5 space-y-2">
+                <div className="flex justify-between text-xs">
+                  <span className="text-deepCharcoal/60">Subtotal</span>
+                  <span>{formatPrice(subtotal)}</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-deepCharcoal/60">Shipping</span>
+                  <span className={shipping === 0 ? "text-green-600" : ""}>{shipping === 0 ? "Free" : formatPrice(shipping)}</span>
+                </div>
+                <div className="flex justify-between text-sm font-bold pt-2 border-t border-black/5">
+                  <span>Total</span>
+                  <span>{formatPrice(total)}</span>
+                </div>
+              </div>
+            </div>
+          </div>
           {/* Left Column - Forms */}
           <div>
             {/* Progress Steps */}
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 mb-8">
               {["information", "shipping", "payment"].map((s, idx) => (
-                <div key={s} className="flex items-center gap-2">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                <div key={s} className="flex items-center gap-1 sm:gap-2">
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[10px] sm:text-sm font-medium ${
                     step === s 
                       ? "bg-softGold text-deepCharcoal" 
                       : ["information", "shipping", "payment"].indexOf(step) > idx 
                         ? "bg-green-500 text-white"
                         : "bg-black/5 text-deepCharcoal/40"
                   }`}>
-                    {["information", "shipping", "payment"].indexOf(step) > idx ? <Check size={16} /> : idx + 1}
+                    {["information", "shipping", "payment"].indexOf(step) > idx ? <Check size={14} /> : idx + 1}
                   </div>
-                  <span className={`text-xs uppercase tracking-wider ${
-                    step === s ? "text-deepCharcoal font-medium" : "text-deepCharcoal/40"
+                  <span className={`text-[10px] uppercase tracking-wider ${
+                    step === s ? "text-deepCharcoal font-bold" : "text-deepCharcoal/40"
                   }`}>
                     {s}
                   </span>
-                  {s !== "payment" && <div className="w-8 h-px bg-black/10" />}
+                  {s !== "payment" && <div className="hidden sm:block w-4 md:w-8 h-px bg-black/10" />}
                 </div>
               ))}
             </div>
@@ -391,7 +438,7 @@ export default function CheckoutPage() {
                       </div>
                     </div>
                     <span className="font-medium text-deepCharcoal">
-                      {subtotal >= 2000 ? "Free" : "₹150"}
+                      {subtotal >= 999 ? "Free" : "₹70"}
                     </span>
                   </label>
                   
@@ -583,7 +630,7 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex items-center gap-2 text-xs text-deepCharcoal/50 mt-2">
                   <Truck size={16} className="text-softGold" />
-                  <span>Free shipping on orders above ₹2,000</span>
+                  <span>Free shipping on orders above ₹999</span>
                 </div>
               </div>
             </div>

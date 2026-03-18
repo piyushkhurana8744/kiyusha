@@ -23,9 +23,9 @@ const aboutLinks = [
 
 export default function Footer() {
   return (
-    <footer className="mt-24 bg-deepCharcoal text-warmWhite">
-      <div className="container-lux py-20">
-        <div className="grid gap-14 border-b border-white/15 pb-14 lg:grid-cols-[1.2fr,1fr,1fr,1fr]">
+    <footer className="mt-16 sm:mt-24 bg-deepCharcoal text-warmWhite">
+      <div className="container-lux py-12 sm:py-20">
+        <div className="grid gap-10 sm:gap-14 border-b border-white/15 pb-12 sm:pb-14 lg:grid-cols-[1.2fr,1fr,1fr,1fr]">
           <div className="max-w-md space-y-5">
             <p className="font-heading text-3xl uppercase tracking-[0.18em]">Kiyusha</p>
             <p className="text-sm leading-relaxed text-white/80">

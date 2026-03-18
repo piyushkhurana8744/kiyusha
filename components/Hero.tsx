@@ -42,8 +42,8 @@ export default function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-softGold animate-pulse" />
             <p className="text-[10px] uppercase tracking-[0.2em] text-white font-medium">✨ New Collection: Only 5-10 pieces per design</p>
           </div>
-          <h1 className="font-heading text-4xl leading-tight text-white md:text-6xl">
-            From our stall <br className="hidden md:block" /> to your style.
+          <h1 className="font-heading text-3xl leading-tight text-white sm:text-4xl md:text-6xl">
+            From our stall <br className="hidden sm:block" /> to your style.
           </h1>
           <p className="max-w-xl text-sm leading-relaxed text-white/90 md:text-lg">
             We started with a small stall in local markets. Today, we bring our handpicked collection of jewellery, handmade crochet, and beauty finds directly to your doorstep.

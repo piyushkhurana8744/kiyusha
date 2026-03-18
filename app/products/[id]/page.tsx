@@ -105,7 +105,7 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <main className="bg-ivory min-h-screen pt-20">
+    <main className="bg-ivory min-h-screen pt-12 sm:pt-20">
       
       {/* Breadcrumb */}
       <div className="container-lux py-4">
@@ -222,7 +222,7 @@ export default function ProductDetailPage() {
                 <p className="text-[10px] uppercase tracking-[0.3em] text-softGold font-bold">
                   {product.category}
                 </p>
-                <h1 className="font-heading text-3xl lg:text-4xl text-deepCharcoal tracking-tight">
+                <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl text-deepCharcoal tracking-tight">
                   {product.name}
                 </h1>
                 <div className="flex items-baseline gap-3 pt-1">
@@ -353,7 +353,7 @@ export default function ProductDetailPage() {
                         <div className="space-y-4 max-w-sm">
                           <div className="flex gap-3">
                             <Truck size={14} className="text-softGold shrink-0" />
-                            <p>Free express delivery across India. Ships within 24-48 hours.</p>
+                             <p>Free delivery on orders above ₹999. Ships within 24-48 hours.</p>
                           </div>
                           <div className="flex gap-3">
                             <RotateCcw size={14} className="text-softGold shrink-0" />

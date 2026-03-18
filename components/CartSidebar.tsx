@@ -34,7 +34,7 @@ export default function CartSidebar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white z-50 flex flex-col shadow-2xl"
+            className="fixed right-0 top-0 bottom-0 w-full md:max-w-md bg-white z-50 flex flex-col shadow-2xl"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-black/5">
@@ -115,6 +115,19 @@ export default function CartSidebar() {
             {/* Footer */}
             {items.length > 0 && (
               <div className="p-6 border-t border-black/5 space-y-4">
+                {totalPrice < 999 && (
+                  <div className="bg-softGold/5 p-3 rounded-xl border border-softGold/10 mb-2">
+                    <p className="text-[10px] text-softGold font-bold uppercase tracking-wider text-center">
+                      Add {formatPrice(999 - totalPrice)} more for FREE shipping
+                    </p>
+                    <div className="mt-2 h-1 w-full bg-softGold/10 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-softGold transition-all duration-500" 
+                        style={{ width: `${Math.min(100, (totalPrice / 999) * 100)}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
                 <div className="flex justify-between items-center">
                   <span className="text-deepCharcoal/60">Subtotal</span>
                   <span className="text-xl font-medium">{formatPrice(totalPrice)}</span>

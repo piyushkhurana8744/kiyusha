@@ -58,7 +58,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className={`font-heading text-3xl uppercase tracking-[0.22em] transition-colors duration-500 ${textColorClass}`}
+            className={`font-heading text-2xl md:text-3xl uppercase tracking-[0.22em] transition-colors duration-500 ${textColorClass}`}
             aria-label="Kiyusha Home"
           >
             Kiyusha
@@ -254,24 +254,25 @@ export default function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               className="border-t border-black/5 bg-white lg:hidden overflow-hidden"
             >
-              <nav className="container-lux flex flex-col gap-1 py-8">
+              <nav className="container-lux flex flex-col gap-1 py-10">
                 {primaryLinks.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-deepCharcoal/80 hover:text-softGold transition-colors"
+                    className="py-4 text-sm font-medium uppercase tracking-[0.16em] text-deepCharcoal/80 hover:text-softGold transition-all border-b border-black/5"
                   >
                     {link.label}
                   </Link>
                 ))}
-                <div className="h-px w-full bg-black/5 my-4" />
-                <p className="text-[10px] uppercase tracking-[0.2em] text-softGold font-bold mb-4">Our Edits</p>
-                <div className="grid grid-cols-2 gap-4">
-                  {navCategories.slice(0, 4).map(cat => (
-                    <Link key={cat.title} href={cat.href} className="text-[12px] text-deepCharcoal/60 capitalize">
-                      {cat.title}
-                    </Link>
-                  ))}
+                <div className="mt-8">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-softGold font-bold mb-6">Explore Our Edits</p>
+                  <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+                    {navCategories.map(cat => (
+                      <Link key={cat.title} href={cat.href} className="text-[13px] text-deepCharcoal/60 capitalize hover:text-softGold transition-colors">
+                        {cat.title}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </nav>
             </motion.div>
