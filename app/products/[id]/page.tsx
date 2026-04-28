@@ -35,6 +35,7 @@ export default function ProductDetailPage() {
   const [isAdding, setIsAdding] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const [activeTab, setActiveTab] = useState<"description" | "details" | "shipping">("description");
+  const [isShared, setIsShared] = useState(false);
 
   const images = product ? [product.image, product.hoverImage, ...(product.gallery || [])].filter(Boolean) : [];
 
@@ -72,7 +73,8 @@ export default function ProductDetailPage() {
         await navigator.share(shareData);
       } else {
         await navigator.clipboard.writeText(window.location.href);
-        alert("Link copied to clipboard!");
+        setIsShared(true);
+        setTimeout(() => setIsShared(false), 2000);
       }
     } catch (err) {
       console.error("Error sharing:", err);
@@ -208,10 +210,12 @@ export default function ProductDetailPage() {
                 </button>
                 <button 
                   onClick={handleShare}
-                  className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-deepCharcoal/40 hover:text-softGold transition-colors font-bold"
+                  className={`flex items-center gap-2 text-[10px] uppercase tracking-widest transition-colors font-bold ${
+                    isShared ? "text-softGold" : "text-deepCharcoal/40 hover:text-softGold"
+                  }`}
                 >
-                  <Share2 size={16} />
-                  <span>Share</span>
+                  {isShared ? <Check size={16} /> : <Share2 size={16} />}
+                  <span>{isShared ? "Copied!" : "Share"}</span>
                 </button>
               </div>
             </div>
