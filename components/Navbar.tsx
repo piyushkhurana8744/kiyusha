@@ -6,7 +6,7 @@ import { Menu, ShoppingBag, X, User as UserIcon, LogOut, ChevronDown } from "luc
 import { useEffect, useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { navCategories } from "@/data/home";
-import { useSession, signOut } from "@/lib/auth-client";
+import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 const primaryLinks = [
@@ -194,8 +194,8 @@ export default function Navbar() {
                         className="absolute right-0 mt-3 w-56 bg-white/95 backdrop-blur-xl border border-black/5 shadow-2xl p-2 z-[60] rounded-lg"
                       >
                         <div className="px-4 py-3 border-b border-black/5 mb-2">
-                          <p className="text-xs font-bold text-deepCharcoal truncate">{session.user.name}</p>
-                          <p className="text-[10px] text-deepCharcoal/50 truncate uppercase tracking-tighter">{session.user.email}</p>
+                          <p className="text-xs font-bold text-deepCharcoal truncate">{session?.user?.name}</p>
+                          <p className="text-[10px] text-deepCharcoal/50 truncate uppercase tracking-tighter">{session?.user?.email}</p>
                         </div>
                         <Link
                           href="/account"

@@ -1,16 +1,13 @@
 import Link from "next/link";
 import { LayoutDashboard, ShoppingBag, Image as ImageIcon, Settings, Globe } from "lucide-react";
 import { ReactNode } from "react";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
+import { auth } from "@/lib/auth-next";
 import { redirect } from "next/navigation";
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
-  const session = await auth.api.getSession({
-    headers: headers(),
-  });
+  const session = await auth();
 
-  if (!session) {
+  if (!session || (session.user as any)?.role !== "admin") {
     redirect("/login");
   }
 

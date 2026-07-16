@@ -1,15 +1,16 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import { useSession, signOut } from "@/lib/auth-client";
+import { useSession, signOut } from "next-auth/react";
 import { motion } from "framer-motion";
 import { LogOut, Package, Settings, User } from "lucide-react";
 import { redirect } from "next/navigation";
 
 export default function AccountPage() {
-  const { data: session, isPending } = useSession();
+  const { data: session, status } = useSession();
+  const isPending = status === "loading";
 
-  if (!isPending && !session) {
+  if (status === "unauthenticated") {
     redirect("/login");
   }
 
@@ -35,10 +36,10 @@ export default function AccountPage() {
             <aside className="w-full md:w-64 space-y-2">
               <div className="p-6 bg-warmWhite subtle-border mb-8">
                 <div className="w-16 h-16 rounded-full bg-softGold flex items-center justify-center text-2xl font-bold mb-4">
-                  {session?.user.name?.charAt(0)}
+                  {session?.user?.name?.charAt(0)}
                 </div>
-                <h2 className="font-heading text-xl truncate">{session?.user.name}</h2>
-                <p className="text-xs text-black/40 truncate">{session?.user.email}</p>
+                <h2 className="font-heading text-xl truncate">{session?.user?.name}</h2>
+                <p className="text-xs text-black/40 truncate">{session?.user?.email}</p>
               </div>
 
               <nav className="space-y-1">
@@ -75,13 +76,13 @@ export default function AccountPage() {
                 <div>
                   <label className="block text-[10px] uppercase tracking-[0.2em] text-softGold mb-2 px-1">Full Name</label>
                   <div className="w-full border-b border-black/10 py-3 text-sm font-medium">
-                    {session?.user.name}
+                    {session?.user?.name}
                   </div>
                 </div>
                 <div>
                   <label className="block text-[10px] uppercase tracking-[0.2em] text-softGold mb-2 px-1">Email Address</label>
                   <div className="w-full border-b border-black/10 py-3 text-sm font-medium">
-                    {session?.user.email}
+                    {session?.user?.email}
                   </div>
                 </div>
                 <div>

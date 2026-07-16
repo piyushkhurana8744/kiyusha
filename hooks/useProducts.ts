@@ -5,8 +5,10 @@ import { queryClient } from "@/lib/tanstack-query";
 export interface Product {
   _id: string;
   name: string;
+  slug: string;
   category: string;
   description?: string;
+  seoDescription?: string;
   mrp?: number;
   sellingPrice: number;
   price: string;
@@ -19,14 +21,28 @@ export interface Product {
   isFeatured?: boolean;
   isNewArrival?: boolean;
   showDiscountPopup?: boolean;
+  specifications?: {
+    baseMetal: string;
+    plating: string;
+    weight: string;
+    dimensions: string;
+  };
+  reviews?: Array<{
+    reviewerName: string;
+    rating: number;
+    comment?: string;
+    date?: string;
+  }>;
   createdAt?: string;
   updatedAt?: string;
 }
 
 export interface ProductInput {
   name: string;
+  slug?: string;
   category: string;
   description?: string;
+  seoDescription?: string;
   mrp?: number;
   sellingPrice: number;
   price?: string;
@@ -38,6 +54,17 @@ export interface ProductInput {
   isFeatured?: boolean;
   isNewArrival?: boolean;
   showDiscountPopup?: boolean;
+  specifications?: {
+    baseMetal?: string;
+    plating?: string;
+    weight?: string;
+    dimensions?: string;
+  };
+  reviews?: Array<{
+    reviewerName: string;
+    rating: number;
+    comment?: string;
+  }>;
 }
 
 // Query Keys

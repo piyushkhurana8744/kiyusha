@@ -9,6 +9,8 @@ import CartSidebar from "@/components/CartSidebar";
 import Navbar from "@/components/Navbar";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SessionProvider } from "next-auth/react";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,21 +63,36 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <head>
-        <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
-      </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <TanStackQueryProvider>
-          <CartProvider>
-            <WishlistProvider>
-              <AnnouncementBanner />
-              <Navbar />
-              <CartSidebar />
-              {children}
-              <WhatsAppButton />
-            </WishlistProvider>
-          </CartProvider>
-        </TanStackQueryProvider>
+        <SessionProvider>
+          <TanStackQueryProvider>
+            <CartProvider>
+              <WishlistProvider>
+                <AnnouncementBanner />
+                <Navbar />
+                <CartSidebar />
+                {children}
+                <WhatsAppButton />
+              </WishlistProvider>
+            </CartProvider>
+          </TanStackQueryProvider>
+        </SessionProvider>
+        <Script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="lazyOnload"
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-3TM1P5FL06"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3TM1P5FL06');
+          `}
+        </Script>
       </body>
     </html>
   );
