@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   },
   description:
     "From our local stall to your style. Handpicked jewellery, handmade crochet, and beauty finds loved by our local community.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png"
+  },
   keywords: [
     "demi-fine jewellery",
     "Indian jewellery brand",
