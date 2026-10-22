@@ -14,7 +14,8 @@ const primaryLinks = [
   { label: "Fine Gold", href: "/collections/fine-gold" },
   { label: "Collections", href: "/collections" },
   { label: "Bestsellers", href: "/collections/bestsellers" },
-  { label: "Gifting", href: "/collections/gifting" }
+  { label: "Gifting", href: "/collections/gifting" },
+  { label: "5% Impact", href: "/impact" }
 ];
 
 export default function Navbar() {

@@ -283,6 +283,31 @@ export default function ProductDetailPage() {
                     )}
                   </button>
                 </div>
+
+                {/* 5% NGO Giving Back Pledge */}
+                <div className="rounded-xl border border-softGold/30 bg-gradient-to-r from-softGold/10 via-amber-50/60 to-white p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-softGold/20 text-softGold">
+                      <Heart size={16} className="fill-softGold" />
+                    </div>
+                    <div className="flex-1 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-deepCharcoal uppercase tracking-wider text-[10px]">
+                          Kiyusha 5% Care Pledge
+                        </span>
+                        <span className="font-bold text-softGold text-xs">
+                          ₹{Math.round((Number(product.price.replace(/[^0-9.]/g, "")) || 0) * 0.05)} Pledged
+                        </span>
+                      </div>
+                      <p className="mt-1 text-deepCharcoal/75 leading-relaxed text-[11px]">
+                        5% of this purchase goes to meals & education for underprivileged children at zero extra cost to you. Complete photo proof is shared with you!
+                      </p>
+                      <Link href="/impact" className="inline-block mt-1 text-[10px] font-bold text-softGold uppercase tracking-wider hover:underline">
+                        How it works →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Trust Badges */}

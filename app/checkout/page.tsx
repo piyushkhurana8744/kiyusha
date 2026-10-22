@@ -14,7 +14,8 @@ import {
   Loader2,
   ShoppingBag,
   ArrowRight,
-  Package
+  Package,
+  Heart
 } from "lucide-react";
 import { useCart, CartItem } from "@/context/CartContext";
 import Footer from "@/components/Footer";
@@ -218,6 +219,20 @@ export default function CheckoutPage() {
               <p className="text-sm text-deepCharcoal/50 uppercase tracking-wider mb-2">Order Number</p>
               <p className="text-xl font-medium">KYSH-{Date.now().toString().slice(-8)}</p>
             </div>
+
+            <div className="bg-gradient-to-br from-softGold/10 via-amber-50/50 to-white p-6 rounded-2xl border border-softGold/30 text-center space-y-2">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-softGold">
+                <Heart size={14} className="fill-softGold" />
+                <span>5% Kiyusha Care Contribution Active</span>
+              </div>
+              <p className="font-heading text-lg text-deepCharcoal font-semibold">
+                You just helped support a child in need!
+              </p>
+              <p className="text-xs text-deepCharcoal/70 leading-relaxed max-w-sm mx-auto">
+                5% of your purchase will be used for meals and school books for underprivileged children. Verified photos & impact updates will be shared directly with you on your WhatsApp/Email.
+              </p>
+            </div>
+
             <Link 
               href="/collections/new-arrivals" 
               className="inline-block bg-deepCharcoal text-warmWhite px-8 py-3 rounded-xl font-medium hover:bg-black transition-colors"
@@ -281,6 +296,13 @@ export default function CheckoutPage() {
                 <div className="flex justify-between text-xs">
                   <span className="text-deepCharcoal/60">Shipping</span>
                   <span className={shipping === 0 ? "text-green-600" : ""}>{shipping === 0 ? "Free" : formatPrice(shipping)}</span>
+                </div>
+                <div className="flex justify-between text-xs py-1.5 px-2.5 rounded bg-softGold/10 border border-softGold/20">
+                  <span className="flex items-center gap-1 text-deepCharcoal font-medium">
+                    <Heart size={11} className="text-softGold fill-softGold" />
+                    5% Child Welfare (Donated by us)
+                  </span>
+                  <span className="font-bold text-softGold">{formatPrice(Math.round(subtotal * 0.05))}</span>
                 </div>
                 <div className="flex justify-between text-sm font-bold pt-2 border-t border-black/5">
                   <span>Total</span>
@@ -617,6 +639,18 @@ export default function CheckoutPage() {
                     <span>-{formatPrice(discount)}</span>
                   </div>
                 )}
+                <div className="flex justify-between items-center text-xs py-2.5 px-3 rounded-xl bg-softGold/10 border border-softGold/20">
+                  <div>
+                    <span className="flex items-center gap-1.5 font-bold text-deepCharcoal">
+                      <Heart size={13} className="text-softGold fill-softGold" />
+                      5% Kiyusha Care Pledge
+                    </span>
+                    <span className="text-[10px] text-deepCharcoal/60 block mt-0.5">
+                      Donated by Kiyusha for children in need • Zero cost to you
+                    </span>
+                  </div>
+                  <span className="font-bold text-softGold text-sm">{formatPrice(Math.round(subtotal * 0.05))}</span>
+                </div>
                 <div className="flex justify-between text-lg font-medium pt-3 border-t border-black/5">
                   <span>Total</span>
                   <span>{formatPrice(total)}</span>

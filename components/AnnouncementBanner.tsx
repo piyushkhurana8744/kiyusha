@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const announcements = [
+  "💛 5% OF EVERY PURCHASE SUPPORTS NEEDY CHILDREN • 100% PROOF SHARED WITH YOU",
   "⚡ FREE GIFT ON ALL PREPAID ORDERS",
   "✨ ETHICALLY SOURCED • LOCALLY LOVED • TIMELESS DESIGNS",
   "🚚 FREE SHIPPING ON ORDERS ABOVE ₹999",

@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { X, Minus, Plus, ShoppingBag, ArrowRight } from "lucide-react";
+import { X, Minus, Plus, ShoppingBag, ArrowRight, Heart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 export default function CartSidebar() {
@@ -133,6 +133,14 @@ export default function CartSidebar() {
                   <span className="text-xl font-medium">{formatPrice(totalPrice)}</span>
                 </div>
                 <p className="text-xs text-deepCharcoal/50">Shipping and taxes calculated at checkout</p>
+                <div className="bg-gradient-to-r from-softGold/10 to-amber-500/10 p-3 rounded-xl border border-softGold/25 flex items-start gap-2.5">
+                  <Heart size={16} className="text-softGold fill-softGold flex-shrink-0 mt-0.5" />
+                  <div className="text-[11px] leading-tight text-deepCharcoal">
+                    <span className="font-bold text-softGold">5% Giving Back ({formatPrice(Math.round(totalPrice * 0.05))}):</span>{" "}
+                    <span className="text-deepCharcoal/80">Donated by Kiyusha for needy children & families. Real photo proof shared with you!</span>
+                  </div>
+                </div>
+
                 <Link
                   href="/checkout"
                   onClick={() => setIsCartOpen(false)}

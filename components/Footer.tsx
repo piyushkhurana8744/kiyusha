@@ -16,6 +16,7 @@ const serviceLinks = [
 
 const aboutLinks = [
   { label: "Our Story", href: "/about" },
+  { label: "5% Social Impact", href: "/impact" },
   { label: "Craftsmanship", href: "/craftsmanship" },
   { label: "Press", href: "/press" },
   { label: "Contact", href: "/contact" }
@@ -29,7 +30,8 @@ export default function Footer() {
           <div className="max-w-md space-y-5">
             <p className="font-heading text-3xl uppercase tracking-[0.18em]">Kiyusha</p>
             <p className="text-sm leading-relaxed text-white/80">
-              From our local stall to your style. Handpicked jewellery, handmade crochet, and beauty finds loved by our local community.
+              From our local stall to your style. Handpicked jewellery, handmade crochet, and beauty finds. 
+              <span className="text-softGold font-medium block mt-1">💛 5% of all purchases supports underprivileged children with full verified proof.</span>
             </p>
             <form className="flex flex-col gap-3 sm:flex-row" aria-label="Newsletter signup">
               <label htmlFor="newsletter-email" className="sr-only">

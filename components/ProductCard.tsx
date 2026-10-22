@@ -191,6 +191,11 @@ export default function ProductCard({ product }: ProductCardProps) {
             </button>
           </div>
 
+          <div className="w-full flex items-center gap-1.5 text-[9px] uppercase tracking-wider text-softGold font-semibold pt-1">
+            <Heart size={10} className="fill-softGold" />
+            <span>5% of purchase supports needy children</span>
+          </div>
+
           <div className="w-full mt-2 bg-ivory/30 rounded-full h-1 overflow-hidden relative">
              <div className="absolute top-0 left-0 h-full bg-softGold/20 w-[85%]" />
              <p className="text-[9px] font-bold text-softGold flex items-center gap-1 mt-2.5">

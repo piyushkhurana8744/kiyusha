@@ -15,6 +15,7 @@ import { ArrowRight } from "lucide-react";
 import TrustSection from "@/components/TrustSection";
 import ValueProp from "@/components/ValueProp";
 import Features from "@/components/Features";
+import ImpactSection from "@/components/ImpactSection";
 import ClosingCTA from "@/components/ClosingCTA";
 
 type OwnerInfo = {
@@ -116,6 +117,8 @@ export default function HomePage() {
       </section>
 
       <Features />
+
+      <ImpactSection />
 
       <section className="bg-warmWhite py-24">
         <Testimonials items={testimonials} />
